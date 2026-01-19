@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +8,27 @@
   <title>Burger House | Premium Food Delivery</title>
   <meta name="description" content="Order the best premium burgers, pizzas, and fries online. Fast delivery and high-quality ingredients." />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Move away from CDN to production-ready build-time CSS -->
+  <link rel="stylesheet" href="/index.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root { --yellow-main: #ffc000; }
-    .font-bebas { font-family: 'Bebas Neue', sans-serif; }
-    .font-mont { font-family: 'Montserrat', sans-serif; }
-    body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-    .yellow-bg { background-color: var(--yellow-main); }
-    .text-yellow-custom { color: var(--yellow-main); }
-    .burger-hero-shadow { filter: drop-shadow(0 25px 35px rgba(0,0,0,0.2)); }
-  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.1.0"
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-slate-50 text-neutral-900 selection:bg-yellow-200">
+<body>
   <div id="root"></div>
-
-  ✅ <!-- THIS LINE WAS MISSING -->
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
