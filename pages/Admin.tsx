@@ -48,7 +48,14 @@ export default function Admin() {
   if (!isAdmin && !isManager) return <Navigate to="/login" />;
 
   // Analytics Calculations
-  const analytics = useMemo(() => {
+  // Fix: Explicitly type the useMemo result to prevent members from being inferred as 'unknown'
+  const analytics = useMemo<{
+    totalRevenue: number;
+    completedOrders: number;
+    avgOrderValue: number;
+    categorySales: Record<string, number>;
+    topItems: (FoodItem & { soldCount: number })[];
+  }>(() => {
     const validOrders = orders.filter(o => o.status !== 'cancelled');
     const totalRevenue = validOrders.reduce((sum, o) => sum + o.total, 0);
     const completedOrders = orders.filter(o => o.status === 'delivered').length;
